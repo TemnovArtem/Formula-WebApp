@@ -2,6 +2,9 @@ import React from "react"; // React is often needed for JSX, even if not directl
 import ButtonFormula from "../Components/ButtonFormula/ButtonFormula.jsx";
 import "./MainMenuStyle.css";
 import SlideBarPhoto from "../Components/SlideBar/SlideBarPhoto.jsx";
+import Info from "../Components/SlideBar/Information/Info.jsx";
+import Avatar from "../Components/SlideBar/MyAvatar/Avatar.jsx";
+import Question from "../Components/SlideBar/Question/Question.jsx";
 function MainMenu() {
   return (
     <div className="BackGround-MainMenu">
@@ -27,6 +30,9 @@ function MainMenu() {
             <ButtonFormula label={"Advanced"} />
           </div>
 
+          <Info></Info>
+          <Avatar></Avatar>
+          <Question></Question>
           <div className="Physics">
             <ButtonFormula label={"Physics"} />
           </div>

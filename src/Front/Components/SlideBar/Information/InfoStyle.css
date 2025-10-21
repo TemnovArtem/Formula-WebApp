@@ -1,0 +1,13 @@
+.AboveQuestion {
+    position: fixed;
+    bottom: 70px;
+    right: 17px;
+    background-color: transparent;
+    border: none;
+    padding: 8px;
+
+    cursor: pointer;
+
+}
+
+

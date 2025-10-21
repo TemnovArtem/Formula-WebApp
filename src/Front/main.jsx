@@ -5,7 +5,7 @@ import ButtonFormula from "./Components/ButtonFormula/ButtonFormula.jsx";
 import MainMenu from "./MainMenu/MainMenu.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Registration></Registration>
-    {/*<MainMenu></MainMenu>*/}
+    {/*<Registration></Registration>*/}
+    <MainMenu></MainMenu>
   </StrictMode>,
 );
