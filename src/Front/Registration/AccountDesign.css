@@ -1,10 +1,10 @@
 .Account img {
-    /* Если вы уменьшали размер иконки, оставьте width/height */
+
     width: 321px;
     height: 250px;
     position: relative;
     top: 110px;
     left: 60px;
-    /* Измените этот параметр: */
+
 
 }

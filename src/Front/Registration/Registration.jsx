@@ -1,6 +1,7 @@
 import "./StyleReg.css";
 import StyledInput from "../Components/InputContainer.jsx";
 import AccountPhoto from "./AccountAdd.jsx";
+import "@fontsource-variable/tektur";
 
 function Registration() {
   return (
@@ -24,14 +25,14 @@ function Registration() {
       </div>
 
       <div className="Button-container">
-        <div className="Sign-up">
-          <button>Sign Up</button>
+        <div>
+          <button className="Sign-up">Sign Up</button>
         </div>
-        <div className="Log-in">
-          <button>Log in?</button>
+        <div>
+          <button className="Log-in">Log in?</button>
         </div>
-        <div className="Forgot-password">
-          <button>forgot password?</button>
+        <div>
+          <button className="Forgot-password">forgot password?</button>
         </div>
       </div>
     </div>
