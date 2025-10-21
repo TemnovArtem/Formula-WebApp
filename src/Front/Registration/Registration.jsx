@@ -1,5 +1,5 @@
 import "./StyleReg.css";
-import StyledInput from "../Components/InputContainer.jsx";
+import StyledInput from "../Components/inputContainer/InputContainer.jsx";
 import AccountPhoto from "./AccountAdd.jsx";
 import "@fontsource-variable/tektur";
 
