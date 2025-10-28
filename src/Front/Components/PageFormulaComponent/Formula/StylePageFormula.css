@@ -1,0 +1,31 @@
+.PageFormulaContainer{
+    height: 600px;
+    width: 750px;
+    margin-left: 200px;
+    background-color: black;
+    margin-top: 150px;
+    border-radius: 30px;
+background-image: url("src/Front/assets/BackGroundFormula.png");
+
+}
+.TextFormula{
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    padding-top: 5px;
+    font-family: "Tektur Variable", system-ui;
+    letter-spacing: 4px;
+
+
+
+}
+.First, .Second, .Third, .Fourth, .Fifth{
+    color: white;
+    font-size: 20px;
+    font-family: "Tektur Variable", system-ui;
+    letter-spacing: 4px;
+padding: 45px;
+
+
+
+}

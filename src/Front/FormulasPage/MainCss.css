@@ -1,0 +1,31 @@
+.advanced-page-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.back-button-wrapper {
+    display: flex;
+    align-items: flex-start;
+}
+
+.contentWrapper {
+    display: flex;
+    gap: 50px;
+    flex: 1;
+}
+.advanced-page-title{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 5px;
+    font-family: "Tektur Variable", system-ui;
+    letter-spacing: 4px;
+
+
+}
+.background{
+    background-color: black;
+
+
+}

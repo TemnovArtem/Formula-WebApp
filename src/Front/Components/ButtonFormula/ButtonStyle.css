@@ -32,7 +32,7 @@
     font-family: "Courier New", monospace;
     font-size: 18px;
     letter-spacing: 4px;
-    color: #ff0000;
+    color: white;
     user-select: none;
     pointer-events: none;
 
@@ -49,13 +49,12 @@
 }
 
 .button:hover .button-text {
-    transform: rotate(360deg);
 
 
     transition: all 1s;
     writing-mode: horizontal-tb;
     font-size:50px;
-    color: #0000ff;
+    color: white;
 
 
 }

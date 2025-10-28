@@ -1,0 +1,69 @@
+.about-developer-container {
+    min-height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 40px 20px;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.aboutTitle {
+    text-align: center;
+    font-family: monospace;
+    font-size: 24px;
+    margin-bottom: 60px;
+    color: #ffffff;
+}
+
+.developersGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.developerCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.developerAvatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+
+}
+
+.developerAvatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.developerName {
+    font-family: monospace;
+    font-size: 18px;
+    margin: 0 0 10px 0;
+    color: #ffffff;
+}
+
+.developerSubtitle {
+    font-size: 12px;
+    color: #888888;
+    margin-left: 5px;
+}
+
+.developerDescription {
+    font-family: monospace;
+    font-style: italic;
+    font-size: 14px;
+    color: #cccccc;
+    margin: 0;
+    max-width: 200px;
+}

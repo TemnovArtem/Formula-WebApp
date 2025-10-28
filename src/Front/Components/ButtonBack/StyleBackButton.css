@@ -1,0 +1,23 @@
+.ButtonContainer {
+    width: 100px;
+    height: 100%;
+    background-color: transparent;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.TextButton {
+    writing-mode: vertical-rl;
+    font-family: "Tektur Variable", system-ui;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    letter-spacing: 4px;
+    cursor: pointer;
+    width: 100px;
+    height: 100%;
+}

@@ -1,0 +1,90 @@
+
+.testPage {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a0033 0%, #4a0080 50%, #1a0033 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+/* Текст зліва */
+.titleText {
+    position: absolute;
+    left: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Tektur Variable', monospace;
+    color: white;
+    font-size: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.2;
+    letter-spacing: 2px;
+}
+
+/* Основна картка */
+.testCard {
+    background-color: transparent;
+    background-image: url("src/Front/assets/BackGroundFormula.png");
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    margin-left: auto;
+    margin-right: 60px;
+}
+
+/* Заголовок */
+.taskHeader {
+    font-family: monospace;
+    color: #d0d0d0;
+    font-size: 14px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+/* Червоний блок для завдання */
+.taskContent {
+    background-color: #6b3434;
+    border-radius: 8px;
+    padding: 60px 30px;
+    margin-bottom: 30px;
+    min-height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+    font-family: monospace;
+}
+
+/* Контейнер для відповіді */
+.answerContainer {
+    position: relative;
+}
+
+
+
+
+
+
+.submit-button:hover {
+
+}
+
+/* Текст "Verify right" */
+.verifyText {
+    position: relative;
+    bottom: 60px;
+    left: 350px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
