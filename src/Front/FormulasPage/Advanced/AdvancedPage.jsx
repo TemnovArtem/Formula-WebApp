@@ -7,7 +7,7 @@ import "/src/Front/FormulasPage/MainCss.css";
 function AdvancedPage() {
   return (
     <>
-      <div className="background">
+      <div className="backgroundFormulas">
         <h1 className="advanced-page-title">Advanced</h1>
         <div className="advanced-page-container">
           <div className="back-button-wrapper">

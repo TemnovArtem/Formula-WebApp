@@ -7,7 +7,7 @@ import "/src/Front/FormulasPage/MainCss.css";
 function PhysicsPage() {
   return (
     <>
-      <div className="background">
+      <div className="backgroundFormulas">
         <h1 className="advanced-page-title">Physics</h1>
         <div className="advanced-page-container">
           <div className="back-button-wrapper">

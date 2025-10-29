@@ -4,31 +4,82 @@
 
 }
 
-.BackGround {
-
+.shader-effect {
     min-height: 100vh;
     width: 100vw;
-    margin: 0;
-    padding: 0;
+    position: relative;
 
     display: flex;
-
+    overflow: hidden;
 
     justify-content: center;
 
-    background-color: black;
+    background-color: #000000;
 
     align-items: center;
 }
 
-.registration-container{
-    background-image: url("../assets/BackGroundRegistration.png") ;
+.shader-effect::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+            circle,
+            rgba(20, 182, 234, 0.2) 0%,
+            rgba(8, 38, 48, 0) 70%
+    ),
+    radial-gradient(
+            circle,
+            rgba(12, 94, 225, 0.1) 0%,
+            rgba(0, 190, 251, 0) 60%
+    ),
+    radial-gradient(
+            circle,
+            rgba(255, 0, 214, 0.3) 0%,
+            rgba(49, 244, 6, 0) 50%
+    );
+    background-size: 250% 250%, 200% 200%, 150% 150%;
+    background-position: 0% 0%, 20% 40%, 80% 60%;
+    animation: move-background 15s linear infinite;
+    filter: blur(40px);
+    transform: scale(1.2);
+}
+
+@keyframes move-background {
+    0% {
+        background-position: 0% 0%, 20% 40%, 80% 60%;
+    }
+    25% {
+        background-position: 10% 20%, 30% 60%, 70% 50%;
+    }
+    50% {
+        background-position: 20% 40%, 40% 80%, 60% 40%;
+    }
+    75% {
+        background-position: 10% 60%, 30% 40%, 70% 30%;
+    }
+    100% {
+        background-position: 0% 0%, 20% 40%, 80% 60%;
+    }
+}
+
+
+.registration-container {
+    /* background-image: url("../assets/BackGroundRegistration.png") ; */
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(104, 136, 146, 0.3);
     padding: 30px;
     width: 800px;
     height: 830px;
     border-radius: 50px;
-
+    position: relative;
+    z-index: 1;
 }
+
 .form-input-row{
 
     display: flex;

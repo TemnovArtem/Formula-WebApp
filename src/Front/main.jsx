@@ -14,14 +14,6 @@ import PageAboutDeveloper from "./AboutDeveloper/PageAboutDeveloper.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    {/*<Registration></Registration>
-    <MainMenu></MainMenu>
-    <PageAnother></PageAnother>*/}
-    {/*    <AdvancedPage></AdvancedPage>
-    <AlgorithmPage></AlgorithmPage>
-    <BasicPage></BasicPage>*/}
-    <PhysicsPage></PhysicsPage>
-    {/*  <TestPage></TestPage>*/}
-    {/*<PageAboutDeveloper></PageAboutDeveloper>*/}
+    <MainMenu />
   </StrictMode>,
 );

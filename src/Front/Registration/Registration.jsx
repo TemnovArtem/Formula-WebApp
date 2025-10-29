@@ -5,7 +5,7 @@ import "@fontsource-variable/tektur";
 
 function Registration() {
   return (
-    <div className="BackGround">
+    <div className="shader-effect">
       <div className="registration-container">
         <AccountPhoto></AccountPhoto>
 
