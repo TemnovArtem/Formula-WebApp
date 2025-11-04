@@ -2,8 +2,15 @@ import "./StyleReg.css";
 import StyledInput from "../Components/inputContainer/InputContainer.jsx";
 import AccountPhoto from "./AccountAdd.jsx";
 import "@fontsource-variable/tektur";
+import { useNavigate } from "react-router-dom";
+import App from "../App.jsx";
 
 function Registration() {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/menu");
+  };
+
   return (
     <div className="shader-effect">
       <div className="registration-container">
@@ -27,7 +34,9 @@ function Registration() {
 
         <div className="Button-container">
           <div>
-            <button className="Sign-up">Sign Up</button>
+            <button className="Sign-up" onClick={handleClick}>
+              Sign Up
+            </button>
           </div>
           <div>
             <button className="Log-in">Log in?</button>

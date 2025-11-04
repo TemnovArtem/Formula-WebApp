@@ -1,8 +1,9 @@
+
+
 .about-developer-container {
     min-height: 100vh;
-    width: 100vw;
+    width: 100%;
     margin: 0;
-    padding: 40px 20px;
     background-color: #000000;
     color: #ffffff;
 }
