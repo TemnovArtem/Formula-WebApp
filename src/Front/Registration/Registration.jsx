@@ -3,12 +3,30 @@ import StyledInput from "../Components/inputContainer/InputContainer.jsx";
 import AccountPhoto from "./AccountAdd.jsx";
 import "@fontsource-variable/tektur";
 import { useNavigate } from "react-router-dom";
-import App from "../App.jsx";
+import { saveUserData } from "./Logick.js"; // імпортуємо функцію
+import { useState } from "react";
 
 function Registration() {
   const navigate = useNavigate();
-  const handleClick = () => {
-    navigate("/menu");
+
+  const [form, setForm] = useState({
+    email: "",
+    username: "",
+    password: "",
+  });
+
+  const handleFieldChange = (name, value) => {
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const success = await saveUserData(form);
+
+    if (success) {
+      navigate("/menu"); // тільки якщо перевірка пройдена
+    }
   };
 
   return (
@@ -20,21 +38,38 @@ function Registration() {
 
         <div className="form-input-row">
           <label className="registration-label">
-            <StyledInput label={"e-mail"}></StyledInput>
+            <StyledInput
+              label={"e-mail"}
+              name={"email"}
+              value={form.email}
+              onChange={handleFieldChange}
+              type={"email"}
+            ></StyledInput>
           </label>
 
           <label className="registration-label">
-            <StyledInput label={"user name"}></StyledInput>
+            <StyledInput
+              label={"user name"}
+              name={"username"}
+              value={form.username}
+              onChange={handleFieldChange}
+            ></StyledInput>
           </label>
 
           <label className="registration-label">
-            <StyledInput label={"password"}></StyledInput>
+            <StyledInput
+              label={"password"}
+              name={"password"}
+              value={form.password}
+              onChange={handleFieldChange}
+              type={"password"}
+            ></StyledInput>
           </label>
         </div>
 
         <div className="Button-container">
           <div>
-            <button className="Sign-up" onClick={handleClick}>
+            <button className="Sign-up" type="submit" onClick={handleSubmit}>
               Sign Up
             </button>
           </div>
