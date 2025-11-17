@@ -17,24 +17,20 @@ function Registration() {
 
     const User = { email, username, password, count_of_test: 0 };
 
-    try {
-      const res = await fetch("http://127.0.0.1:8080/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(User),
-      });
-
-      const text = await res.text();
-      if (!res.ok) {
-        console.error("Server responded with", res.status, text);
-        // показати повідомлення користувачу
-        return;
-      }
-
-      console.log("Success:", res.status, text);
-    } catch (err) {
-      console.error("Fetch failed:", err);
-    }
+    fetch("http://127.0.0.1:8080/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(User),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.ok) {
+          navigate("/menu");
+        } else {
+          console.log("Login failed:", data.message);
+        }
+      })
+      .catch((err) => console.error(err));
   };
 
   return (
@@ -78,16 +74,16 @@ function Registration() {
         <div className="Button-container">
           <div>
             <button className="Sign-up" type="submit">
-              Sign Up
+              Log in
             </button>
           </div>
           <div>
             <button
               className="Log-in"
               type="button"
-              onClick={() => navigate("/login")}
+              onClick={() => navigate("/")}
             >
-              Log in?
+              Sign up?
             </button>
           </div>
           <div>

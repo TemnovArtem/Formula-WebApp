@@ -1,13 +1,6 @@
 import "./StyleInput.css";
 
-const StyledInput = ({
-  label,
-  name,
-  value,
-  onChange,
-  type = "text",
-  placeholder,
-}) => {
+const StyledInput = ({ label, name, value, onChange, type = "text" }) => {
   return (
     <div className="inputContainer">
       <input
@@ -15,8 +8,8 @@ const StyledInput = ({
         name={name}
         type={type}
         value={value}
-        placeholder={placeholder ?? label}
-        onChange={(e) => onChange(e.target.name, e.target.value)}
+        placeholder={label}
+        onChange={onChange}
       />
     </div>
   );

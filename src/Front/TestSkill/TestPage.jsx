@@ -28,11 +28,11 @@ const TestPage = () => {
     }
   };
 
-  const handleFieldChange = (name, value) => {
+  const UsehandleFieldChange = (name, value) => {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
+  const UsehandleSubmit = async (e) => {
     e.preventDefault();
     await AnswerUser(form.answer, questions[currentIndex], nextQuestion);
   };
@@ -59,7 +59,7 @@ const TestPage = () => {
             label="Answer"
             name="answer"
             value={form.answer}
-            onChange={handleFieldChange}
+            onChange={UsehandleFieldChange}
             type="text"
             placeholder="Type your answer here..."
           />
@@ -67,7 +67,7 @@ const TestPage = () => {
           <button
             className="verifyText"
             type="button"
-            onClick={handleSubmit}
+            onClick={UsehandleSubmit}
             aria-label="verify-answer"
           >
             <img src="src/Front/assets/Confirm.png" alt="confirm" />

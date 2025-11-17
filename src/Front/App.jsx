@@ -8,6 +8,7 @@ import AlgorithmPage from "./FormulasPage/Algorithm/AlgorithmPage.jsx";
 import BasicPage from "./FormulasPage/Basic/BasicPage.jsx";
 import PhysicsPage from "./FormulasPage/Physics/PhysicsPage.jsx";
 import ProgrammingPage from "./FormulasPage/Programming/ProgrammingPage.jsx";
+import Login from "./Registration/Login.jsx";
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
       <Route path="/programming" element={<ProgrammingPage />} />
 
       <Route path="/about" element={<PageAboutDeveloper />} />
+
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 }
