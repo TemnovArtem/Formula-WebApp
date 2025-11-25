@@ -3,35 +3,20 @@ import StyledInput from "../Components/inputContainer/InputContainer.jsx";
 import AccountPhoto from "./AccountAdd.jsx";
 import "@fontsource-variable/tektur";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+
+import useLogin from "../Hooks/loginHooks.jsx";
 
 function Registration() {
   const navigate = useNavigate();
-
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const User = { email, username, password, count_of_test: 0 };
-
-    fetch("http://127.0.0.1:8080/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(User),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.ok) {
-          navigate("/menu");
-        } else {
-          console.log("Login failed:", data.message);
-        }
-      })
-      .catch((err) => console.error(err));
-  };
+  const {
+    email,
+    setEmail,
+    username,
+    setUsername,
+    password,
+    setPassword,
+    handleSubmit,
+  } = useLogin("login");
 
   return (
     <form className="shader-effect" onSubmit={handleSubmit}>

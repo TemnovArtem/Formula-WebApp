@@ -28,7 +28,8 @@ const TestPage = () => {
     }
   };
 
-  const UsehandleFieldChange = (name, value) => {
+  const UsehandleFieldChange = (e) => {
+    const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -59,7 +60,7 @@ const TestPage = () => {
             label="Answer"
             name="answer"
             value={form.answer}
-            onChange={UsehandleFieldChange}
+            onChange={UsehandleFieldChange} // Теперь принимает событие
             type="text"
             placeholder="Type your answer here..."
           />

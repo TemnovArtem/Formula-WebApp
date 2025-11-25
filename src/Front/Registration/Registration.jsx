@@ -2,40 +2,22 @@ import "./StyleReg.css";
 import StyledInput from "../Components/inputContainer/InputContainer.jsx";
 import AccountPhoto from "./AccountAdd.jsx";
 import "@fontsource-variable/tektur";
+import useLogin from "../Hooks/loginHooks.jsx";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+/*import { useNavigate } from "react-router-dom";
+import { useState } from "react";*/
 
 function Registration() {
   const navigate = useNavigate();
-
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const User = { email, username, password, count_of_test: 0 };
-
-    try {
-      const res = await fetch("http://127.0.0.1:8080/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(User),
-      });
-
-      const text = await res.text();
-      if (!res.ok) {
-        console.error("Server responded with", res.status, text);
-        // показати повідомлення користувачу
-        return;
-      }
-
-      console.log("Success:", res.status, text);
-    } catch (err) {
-      console.error("Fetch failed:", err);
-    }
-  };
+  const {
+    email,
+    setEmail,
+    username,
+    setUsername,
+    password,
+    setPassword,
+    handleSubmit,
+  } = useLogin("register");
 
   return (
     <form className="shader-effect" onSubmit={handleSubmit}>
