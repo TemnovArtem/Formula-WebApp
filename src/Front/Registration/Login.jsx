@@ -4,7 +4,7 @@ import AccountPhoto from "./AccountAdd.jsx";
 import "@fontsource-variable/tektur";
 import { useNavigate } from "react-router-dom";
 
-import useLogin from "../Hooks/loginHooks.jsx";
+import useLogin from "../Hooks/useLogin.jsx";
 
 function Registration() {
   const navigate = useNavigate();

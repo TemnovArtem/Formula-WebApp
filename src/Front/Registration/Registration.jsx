@@ -2,7 +2,7 @@ import "./StyleReg.css";
 import StyledInput from "../Components/inputContainer/InputContainer.jsx";
 import AccountPhoto from "./AccountAdd.jsx";
 import "@fontsource-variable/tektur";
-import useLogin from "../Hooks/loginHooks.jsx";
+import useLogin from "../Hooks/useLogin.jsx";
 import { useNavigate } from "react-router-dom";
 /*import { useNavigate } from "react-router-dom";
 import { useState } from "react";*/

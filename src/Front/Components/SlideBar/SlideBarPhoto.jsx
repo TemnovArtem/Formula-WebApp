@@ -11,6 +11,9 @@ function SlideBarPhoto() {
   const PiTest = () => {
     navigate("/test");
   };
+  const Leader = () => {
+    navigate("/leader");
+  };
 
   return (
     <>
@@ -22,7 +25,7 @@ function SlideBarPhoto() {
         <img src={Pi} className="PiClass" />
       </button>
 
-      <button className="ShareContainer">
+      <button className="ShareContainer" onClick={Leader}>
         <img src={ShareIn} className="ShareLine" />
       </button>
     </>

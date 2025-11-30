@@ -9,6 +9,7 @@ import BasicPage from "./FormulasPage/Basic/BasicPage.jsx";
 import PhysicsPage from "./FormulasPage/Physics/PhysicsPage.jsx";
 import ProgrammingPage from "./FormulasPage/Programming/ProgrammingPage.jsx";
 import Login from "./Registration/Login.jsx";
+import LeaderBord from "./LeaderBord/LeaderBord.jsx";
 
 function App() {
   return (
@@ -32,6 +33,8 @@ function App() {
       <Route path="/about" element={<PageAboutDeveloper />} />
 
       <Route path="/login" element={<Login />} />
+
+      <Route path="/leader" element={<LeaderBord />} />
     </Routes>
   );
 }

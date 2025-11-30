@@ -11,7 +11,7 @@ export default function useLogin(page) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const User = { email, username, password, countOfText: 0 };
+    const User = { email, username, password, countOfTest: 0 };
 
     try {
       const response = await fetch(`http://127.0.0.1:8080/${page}`, {
@@ -20,7 +20,18 @@ export default function useLogin(page) {
         body: JSON.stringify(User),
       });
 
-      const data = await response.json();
+      // Перевіряємо, чи відповідь містить JSON
+      const contentType = response.headers.get("content-type");
+      let data = null;
+
+      if (contentType && contentType.includes("application/json")) {
+        data = await response.json();
+      } else {
+        // Якщо відповідь не JSON, отримуємо текст
+        const text = await response.text();
+        console.log("Server response (non-JSON):", text);
+        data = { message: text || "Помилка сервера" };
+      }
 
       if (response.ok) {
         if (page === "login") {
@@ -30,10 +41,12 @@ export default function useLogin(page) {
           navigate("/login");
         }
       } else {
-        console.log(`${page} failed:`, data.message);
+        console.log(`${page} failed:`, data.message || "Невідома помилка");
+        alert(`Помилка: ${data.message || "Перевірте введені дані"}`);
       }
     } catch (err) {
-      console.error(err);
+      console.error("Error:", err);
+      alert("Помилка з'єднання з сервером");
     }
   };
 

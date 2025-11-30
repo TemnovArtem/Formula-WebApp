@@ -1,42 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import "./StyleTestPage.css";
 import InputContainer from "../Components/inputContainer/InputContainer.jsx";
 import BackButton from "../Components/ButtonBack/BackButton.jsx";
-import { AnswerUser } from "./AnswerLogick.js";
+import useTestPage from "../Hooks/useTestPage.jsx";
 
 const TestPage = () => {
-  const questions = [
-    "125 + 375",
-    "900 - 457",
-    "24 * 3",
-    "84 / 7",
-    "Знайдіть периметр прямокутника 8 и 5",
-    "3x + 4 при x = 2",
-    "25% від 100",
-    "x - 7 = 15",
-  ];
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [form, setForm] = useState({ answer: "" });
-
-  const nextQuestion = () => {
-    if (currentIndex < questions.length - 1) {
-      setCurrentIndex((prev) => prev + 1);
-      setForm({ answer: "" });
-    } else {
-      alert(" Тест завершено!");
-    }
-  };
-
-  const UsehandleFieldChange = (e) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const UsehandleSubmit = async (e) => {
-    e.preventDefault();
-    await AnswerUser(form.answer, questions[currentIndex], nextQuestion);
-  };
+  const u = "zizem.2007@gmail.com";
+  const {
+    questions,
+    currentIndex,
+    form,
+    count,
+    isLoading,
+    error,
+    handleFieldChange,
+    handleSubmit,
+  } = useTestPage(u, "testPage");
 
   return (
     <div className="testPage">
@@ -47,7 +26,12 @@ const TestPage = () => {
       </div>
 
       <div className="testCard">
-        <div className="taskHeader">TASK #{currentIndex + 1}</div>
+        <div className="taskHeader">
+          TASK #{currentIndex + 1}
+          <span style={{ marginLeft: "20px", fontSize: "0.8em" }}>
+            Правильних відповідей: {count}
+          </span>
+        </div>
 
         <div className="taskContent">
           <pre aria-label="task-text" style={{ margin: 0 }}>
@@ -60,7 +44,7 @@ const TestPage = () => {
             label="Answer"
             name="answer"
             value={form.answer}
-            onChange={UsehandleFieldChange} // Теперь принимает событие
+            onChange={handleFieldChange}
             type="text"
             placeholder="Type your answer here..."
           />
@@ -68,12 +52,19 @@ const TestPage = () => {
           <button
             className="verifyText"
             type="button"
-            onClick={UsehandleSubmit}
+            onClick={handleSubmit}
             aria-label="verify-answer"
+            disabled={isLoading}
           >
             <img src="src/Front/assets/Confirm.png" alt="confirm" />
           </button>
         </div>
+
+        {error && (
+          <div style={{ color: "red", marginTop: "10px" }}>
+            Помилка: {error}
+          </div>
+        )}
       </div>
 
       <BackButton />
