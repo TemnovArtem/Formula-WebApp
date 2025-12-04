@@ -1,0 +1,60 @@
+
+.buttonContainer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+
+}
+
+
+.button {
+    height: 250px;
+    width: 50px;
+    transition: all 1s;
+
+    padding: 0;
+
+    border-radius: 14px;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+
+.button-text {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-family: "Courier New", monospace;
+    font-size: 18px;
+    letter-spacing: 4px;
+    color: white;
+    user-select: none;
+    pointer-events: none;
+
+    transition: all 1s;
+    transform: rotate(0deg);
+
+}
+
+
+.button:hover   {
+    transition: all 1s;
+
+    width: 370px;
+}
+
+.button:hover .button-text {
+
+
+    transition: all 1s;
+    writing-mode: horizontal-tb;
+    font-size:50px;
+    color: white;
+
+
+}

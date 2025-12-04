@@ -1,0 +1,314 @@
+.leaderboard-page {
+    min-height: 100vh;
+    width: 100vw;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    background-color: #000000;
+    align-items: center;
+}
+
+.leaderboard-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 85%;
+    height: 100%;
+    background: radial-gradient(
+            circle,
+            rgba(20, 182, 234, 0.2) 0%,
+            rgba(8, 38, 48, 0) 70%
+    ),
+    radial-gradient(
+            circle,
+            rgba(12, 94, 225, 0.1) 0%,
+            rgba(0, 190, 251, 0) 60%
+    ),
+    radial-gradient(
+            circle,
+            rgba(255, 0, 214, 0.3) 0%,
+            rgba(49, 244, 6, 0) 50%
+    );
+    background-size: 250% 250%, 200% 200%, 150% 150%;
+    background-position: 0% 0%, 20% 40%, 80% 60%;
+    animation: move-background 15s linear infinite;
+    filter: blur(40px);
+    transform: scale(1.2);
+}
+
+@keyframes move-background {
+    0% {
+        background-position: 0% 0%, 20% 40%, 80% 60%;
+    }
+    25% {
+        background-position: 10% 20%, 30% 60%, 70% 50%;
+    }
+    50% {
+        background-position: 20% 40%, 40% 80%, 60% 40%;
+    }
+    75% {
+        background-position: 10% 60%, 30% 40%, 70% 30%;
+    }
+    100% {
+        background-position: 0% 0%, 20% 40%, 80% 60%;
+    }
+}
+
+.titleText {
+    position: absolute;
+    left: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Tektur Variable', monospace;
+    color: white;
+    font-size: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.2;
+    letter-spacing: 2px;
+    z-index: 1;
+}
+
+.leaderboard-card {
+    background-color: transparent;
+    background-image: url("../assets/BackGroundFormula.png");
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 700px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    margin-left: auto;
+    margin-right: 60px;
+    position: relative;
+    z-index: 1;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.leaderboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.leaderboard-header h2 {
+    font-family: 'Tektur Variable', monospace;
+    color: #fff;
+    font-size: 24px;
+    margin: 0;
+    letter-spacing: 2px;
+    text-align: center;
+    flex: 1;
+}
+
+.refresh-button {
+    background-color: rgba(20, 182, 234, 0.2);
+    border: 2px solid rgba(20, 182, 234, 0.5);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: monospace;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.refresh-button:hover:not(:disabled) {
+    background-color: rgba(20, 182, 234, 0.4);
+    border-color: rgba(20, 182, 234, 0.8);
+    transform: scale(1.05);
+}
+
+.refresh-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.leaderboard-table-container {
+    overflow-y: auto;
+    max-height: calc(80vh - 180px);
+    border-radius: 8px;
+}
+
+.leaderboard-table-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.leaderboard-table-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.leaderboard-table-container::-webkit-scrollbar-thumb {
+    background: rgba(20, 182, 234, 0.5);
+    border-radius: 4px;
+}
+
+.leaderboard-table-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(20, 182, 234, 0.8);
+}
+
+.leaderboard-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.leaderboard-table thead tr th {
+    background-color: rgba(107, 52, 52, 0.8);
+    color: #fff;
+    padding: 15px;
+    font-family: monospace;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.leaderboard-table thead tr th:first-child {
+    border-radius: 8px 0 0 8px;
+    text-align: center;
+    width: 100px;
+}
+
+.leaderboard-table thead tr th:last-child {
+    border-radius: 0 8px 8px 0;
+    text-align: center;
+    width: 180px;
+}
+
+.leaderboard-row {
+    background-color: rgba(107, 52, 52, 0.4);
+    transition: all 0.3s ease;
+}
+
+.leaderboard-row:hover {
+    background-color: rgba(107, 52, 52, 0.6);
+    transform: translateX(5px);
+}
+
+.leaderboard-row.top-three {
+    background-color: rgba(255, 215, 0, 0.1);
+}
+
+.leaderboard-row.top-three:hover {
+    background-color: rgba(255, 215, 0, 0.2);
+}
+
+.leaderboard-row td {
+    padding: 15px;
+    color: #fff;
+    font-family: monospace;
+}
+
+.leaderboard-row td:first-child {
+    border-radius: 8px 0 0 8px;
+}
+
+.leaderboard-row td:last-child {
+    border-radius: 0 8px 8px 0;
+}
+
+.position-cell {
+    text-align: center;
+}
+
+.position-badge {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.player-cell {
+    padding: 15px 20px !important;
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.player-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.player-email {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.score-cell {
+    text-align: center;
+}
+
+.score-badge {
+    background-color: rgba(20, 182, 234, 0.3);
+    border: 2px solid rgba(20, 182, 234, 0.6);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #14b6ea;
+}
+
+.loading-message,
+.error-message,
+.empty-message {
+    text-align: center;
+    padding: 40px;
+    color: #fff;
+    font-family: monospace;
+    font-size: 16px;
+}
+
+.error-message {
+    color: #ff6b6b;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+    .leaderboard-card {
+        margin-right: 20px;
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    .titleText {
+        left: 20px;
+        font-size: 32px;
+    }
+
+    .leaderboard-header h2 {
+        font-size: 18px;
+    }
+
+    .leaderboard-table thead tr th,
+    .leaderboard-row td {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .player-name {
+        font-size: 14px;
+    }
+
+    .player-email {
+        font-size: 10px;
+    }
+
+    .score-badge {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
