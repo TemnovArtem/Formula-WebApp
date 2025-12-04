@@ -1,9 +1,18 @@
-import { defineConfig } from "cypress";
+const { defineConfig } = require("cypress");
 
-export default defineConfig({
+module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      require("@cypress/code-coverage/task")(on, config);
+      return config;
+    },
+    baseUrl: "http://localhost:5173", // поставьте ваш адрес/порт dev-сервера
+  },
+
+  component: {
+    setupNodeEvents(on, config) {
+      require("@cypress/code-coverage/task")(on, config);
+      return config;
     },
   },
 

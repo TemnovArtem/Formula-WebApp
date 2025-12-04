@@ -3,12 +3,13 @@ import StyledInput from "../Components/inputContainer/InputContainer.jsx";
 import AccountPhoto from "./AccountAdd.jsx";
 import "@fontsource-variable/tektur";
 import useLogin from "../Hooks/useLogin.jsx";
+import useSessionEmail from "../Hooks/useSession.jsx";
 import { useNavigate } from "react-router-dom";
-/*import { useNavigate } from "react-router-dom";
-import { useState } from "react";*/
 
 function Registration() {
   const navigate = useNavigate();
+  const { email: sessionEmail, setEmail: setSessionEmail } =
+    useSessionEmail("userEmail");
   const {
     email,
     setEmail,
@@ -18,6 +19,12 @@ function Registration() {
     setPassword,
     handleSubmit,
   } = useLogin("register");
+
+  const handleEmailChange = (e) => {
+    const newEmail = e.target.value;
+    setEmail(newEmail);
+    setSessionEmail(newEmail);
+  };
 
   return (
     <form className="shader-effect" onSubmit={handleSubmit}>
@@ -33,7 +40,7 @@ function Registration() {
               name="email"
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleEmailChange}
             />
           </label>
 
