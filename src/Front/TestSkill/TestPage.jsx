@@ -3,9 +3,11 @@ import "./StyleTestPage.css";
 import InputContainer from "../Components/inputContainer/InputContainer.jsx";
 import BackButton from "../Components/ButtonBack/BackButton.jsx";
 import useTestPage from "../Hooks/useTestPage.jsx";
+import useSessionEmail from "../Hooks/useSession.jsx";
 
 const TestPage = () => {
-  const u = "zizem.2007@gmail.com";
+  const { email } = useSessionEmail("userEmail");
+
   const {
     questions,
     currentIndex,
@@ -15,7 +17,7 @@ const TestPage = () => {
     error,
     handleFieldChange,
     handleSubmit,
-  } = useTestPage(u, "testPage");
+  } = useTestPage(email, "testPage");
 
   return (
     <div className="testPage">

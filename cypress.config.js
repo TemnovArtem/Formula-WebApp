@@ -1,16 +1,21 @@
-import { defineConfig } from "cypress";
+import { defineConfig } from 'cypress';
+
+import generated from "@cypress/code-coverage/task";
 
 export default defineConfig({
-  e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
+    component: {
+        devServer: { framework: 'react', bundler: 'vite' },
+        setupNodeEvents(on, config) {
+            generated(on, config);
+            return config;
+        },
+        supportFile: 'cypress/support/component.js',
     },
-  },
-
-  component: {
-    devServer: {
-      framework: "react",
-      bundler: "vite",
+    e2e: {
+        setupNodeEvents(on, config) {
+            generated(on, config);
+            return config;
+        },
+        supportFile: 'cypress/support/e2e.js',
     },
-  },
 });

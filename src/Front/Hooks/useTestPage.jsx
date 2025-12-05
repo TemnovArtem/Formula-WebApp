@@ -73,8 +73,11 @@ const useTestPage = (userEmail, page) => {
       setCount(newCount);
 
       if (questions.length === currentIndex + 1) {
+        console.log("123");
         await updateCount(newCount);
       }
+    } else {
+      nextQuestion();
     }
   };
 
