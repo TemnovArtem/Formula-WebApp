@@ -1,7 +1,7 @@
 import React from "react";
 import "./StyleLeaderBord.css";
 import BackButton from "../Components/ButtonBack/BackButton.jsx";
-import useLeaderboard from "../Hooks/useLeaderboard.jsx";
+import useLeaderboard from "/src/Front/Hooks/useLeaderBoard.jsx"
 
 const LeaderBord = () => {
   const { leaderboardData, isLoading, error, refetch } = useLeaderboard();

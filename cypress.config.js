@@ -1,25 +1,21 @@
-const { defineConfig } = require("cypress");
+import { defineConfig } from 'cypress';
 
-module.exports = defineConfig({
-  e2e: {
-    setupNodeEvents(on, config) {
-      require("@cypress/code-coverage/task")(on, config);
-      return config;
-    },
-    baseUrl: "http://localhost:5173", // поставьте ваш адрес/порт dev-сервера
-  },
+import generated from "@cypress/code-coverage/task";
 
-  component: {
-    setupNodeEvents(on, config) {
-      require("@cypress/code-coverage/task")(on, config);
-      return config;
+export default defineConfig({
+    component: {
+        devServer: { framework: 'react', bundler: 'vite' },
+        setupNodeEvents(on, config) {
+            generated(on, config);
+            return config;
+        },
+        supportFile: 'cypress/support/component.js',
     },
-  },
-
-  component: {
-    devServer: {
-      framework: "react",
-      bundler: "vite",
+    e2e: {
+        setupNodeEvents(on, config) {
+            generated(on, config);
+            return config;
+        },
+        supportFile: 'cypress/support/e2e.js',
     },
-  },
 });
